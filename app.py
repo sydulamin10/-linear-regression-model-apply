@@ -51,6 +51,3 @@ if prompt:
 
     with st.chat_message("assistant"):
         st.markdown(response)
-
-
-# new line added to the end of the file
