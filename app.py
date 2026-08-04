@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load model
+# Load trained linear regression model
 with open("linear_model.pkl", "rb") as file:
     model = pickle.load(file)
 
