@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
-import numpy as np
+
+# Needed so pickle can find the model class
+from model import LinearWeightModel  # noqa: F401
 
 # Load trained linear regression model
 with open("linear_model.pkl", "rb") as file:
@@ -36,10 +38,8 @@ if prompt:
 
     try:
         height = int(prompt)
-
-        prediction = model.predict(np.array([[height]]))
-        weight = float(np.squeeze(prediction))
-
+        prediction = model.predict([[height]])
+        weight = float(prediction[0][0])
         response = f"📏 Height: **{height} cm**\n\n⚖️ Predicted Weight: **{weight:.2f} kg**"
 
     except ValueError:
